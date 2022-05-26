@@ -133,3 +133,9 @@ variable "http_buffering_interval" {
   default     = 60
   description = "Kinesis Firehose http buffer interval, in seconds."
 }
+
+variable "iam_permissions_boundary" {
+  type    = string
+  default = ""
+  description = "ARN of the IAM Permissions Boundry"
+}

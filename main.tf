@@ -1,6 +1,7 @@
 # Following roles taken from https://github.com/hashicorp/terraform-provider-aws/pull/18870/files?file-filters%5B%5D=.markdown
 resource "aws_iam_role" "firehose_to_s3" {
   name_prefix        = var.name
+  permissions_boundary = var.iam_permissions_boundary
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -48,6 +49,7 @@ EOF
 # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
 resource "aws_iam_role" "metric_stream_to_firehose" {
   name_prefix        = var.name
+  permissions_boundary = var.iam_permissions_boundary
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
